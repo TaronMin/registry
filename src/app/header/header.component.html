@@ -1,0 +1,24 @@
+<header>
+  <div class="languages">
+    <ul>
+      <li (click)="changeLang('en')">Eng</li>
+      <li (click)="changeLang('ru')">Rus</li>
+      <li (click)="changeLang('arm')">Arm</li>
+    </ul>
+  </div>
+  <div class="sign-in">
+    <span [routerLink]="['/sign-in']" >{{ "Sign In" | transloco }}</span>
+  </div>
+  <div class="header-logo">
+    <img src="../../../assets/header-logo.png" alt="logo" />
+  </div>
+  <div class="tabs">
+    <ul class="tabs-list">
+      <li>{{ "Teachers" | transloco }}</li>
+      <li>{{ "Donors" | transloco }}</li>
+      <li>{{ "About us" | transloco }}</li>
+      <li>{{ "Contact us" | transloco }}</li>
+      <li>{{ "Blog" | transloco }}</li>
+    </ul>
+  </div>
+</header>

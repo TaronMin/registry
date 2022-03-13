@@ -1,0 +1,157 @@
+<main>
+  <div class="sign-up-content">
+    <h3>{{'Sign Up' | transloco}}</h3>
+    <p class="title-of-sign-up">It’s quick and easy.</p>
+    <div class="underline"></div>
+    <div class="form-content">
+      <form action="" [formGroup]="myForm" (submit)="onSubmit(myForm)">
+        <div class="name-lastname">
+          <div class="w-100">
+            <input
+              type="text"
+              placeholder="Name"
+              formControlName="name"
+              [ngClass]="getErrors('name') ? 'error-border' : ''"
+            />
+            <div *ngIf="getErrors('name')" class="alert">
+              <div *ngIf="myForm.controls['name'].errors?.['required']">
+                Please enter username
+              </div>
+            </div>
+          </div>
+          <div class="w-100">
+            <input
+              type="text"
+              placeholder="Lastname"
+              formControlName="lastname"
+              [ngClass]="getErrors('lastname') ? 'error-border' : ''"
+            />
+            <div *ngIf="getErrors('lastname')" class="alert">
+              <div *ngIf="myForm.controls['lastname'].errors?.['required']">
+                Please enter lastname
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="email w-100">
+          <input
+            class="w-100"
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+            [ngClass]="getErrors('email') ? 'error-border' : ''"
+          />
+          <div *ngIf="getErrors('email')" class="alert">
+            <div *ngIf="myForm.controls['email'].errors?.['required']">
+              Please enter email
+            </div>
+          </div>
+        </div>
+        <div class="tel w-100">
+          <input
+            class="w-100"
+            type="tel"
+            placeholder="+374 99999999"
+            formControlName="tel"
+            [ngClass]="getErrors('tel') ? 'error-border' : ''"
+          />
+          <div *ngIf="getErrors('tel')" class="alert">
+            <div *ngIf="myForm.controls['tel'].errors?.['required']">
+              Please enter telephone
+            </div>
+          </div>
+        </div>
+        <div class="w-100">
+          <select
+            class="w-100 select"
+            name="region"
+            id="region"
+            formControlName="region"
+            [ngClass]="showRegionErr ? 'error-border' : ''"
+            (change)="onChange($event, 'region')"
+          >
+            >
+            <option value="">Region</option>
+            <option value="" *ngFor="let item of region" [ngValue]="item">
+              {{ item }}
+            </option>
+          </select>
+          <div *ngIf="showRegionErr" class="alert">Select the region</div>
+        </div>
+        <div class="w-100">
+          <select
+            class="w-100 select"
+            name=""
+            id="school"
+            formControlName="school"
+            [ngClass]="showSchoolErr ? 'error-border' : ''"
+            (change)="onChange($event, 'school')"
+          >
+            >
+            <option value="">School</option>
+            <option value="" *ngFor="let item of school" [ngValue]="item">
+              {{ item }}
+            </option>
+          </select>
+          <div *ngIf="showSchoolErr" class="alert">Select the school</div>
+        </div>
+        <div class="w-100">
+          <select
+            class="w-100 select"
+            name=""
+            id="subject"
+            formControlName="subject"
+            [ngClass]="showSubjectErr ? 'error-border' : ''"
+            (change)="onChange($event, 'subject')"
+          >
+            <option value="">Subject</option>
+            <option value="" *ngFor="let item of subject" [ngValue]="item">
+              {{ item }}
+            </option>
+          </select>
+          <div *ngIf="showSubjectErr" class="alert">Select the subject</div>
+        </div>
+        <div class="password w-100">
+          <input
+            class="w-100"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            [ngClass]="getErrors('password') ? 'error-border' : ''"
+          />
+          <div *ngIf="getErrors('password')" class="alert">
+            <div *ngIf="myForm.controls['password'].errors?.['required']">
+              Please enter password
+            </div>
+            <div *ngIf="myForm.controls['password'].value">
+              Too short password.
+            </div>
+          </div>
+        </div>
+        <div class="confirm-password w-100">
+          <input
+            class="w-100"
+            type="password"
+            placeholder="Confirm Password"
+            formControlName="confirmpassword"
+            [ngClass]="getErrors('confirmpassword') ? 'error-border' : ''"
+          />
+          <div *ngIf="getErrors('confirmpassword')" class="alert">
+            <div
+              *ngIf="myForm.controls['confirmpassword'].errors?.['required']"
+            >
+              Confirm password
+            </div>
+          </div>
+          <div *ngIf="!confirmPassword" class="alert">
+            The passwords not the same
+          </div>
+        </div>
+        <div class="submit-register_as_donor d-flex-jsc-c-ali-c w-100">
+          <a href="#">{{'Register as a Donor' | transloco}}</a>
+          <button [disabled]="myForm.status === 'INVALID'">Ok</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

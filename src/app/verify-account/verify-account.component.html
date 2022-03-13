@@ -1,0 +1,34 @@
+<main>
+  <div class="sign-up-content">
+    <h3>{{ "Verify Account" | transloco }}</h3>
+    <p class="title-of-sign-up">{{ "Please check your email and enter the recovery code" | transloco }}</p>
+    <div class="underline"></div>
+    <div class="form-content">
+      <form action="" [formGroup]="myForm" (submit)="onSubmit(myForm)">
+        <div class="code w-100">
+          <input
+            min="0"
+            class="w-100"
+            type="number"
+            placeholder="Code"
+            formControlName="code"
+            [ngClass]="getErrors('code') || !isValidCode ? 'error-border' : ''"
+          />
+          <div *ngIf="getErrors('code') || !isValidCode" class="alert">
+            <div *ngIf="myForm.controls['code'].errors?.['required']">
+              Please enter code
+            </div>
+            <div *ngIf="!isValidCode">
+               Invalid code
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-register_as_donor d-flex-jsc-c-ali-c w-100">
+          <a href="#">{{ "Register as a Donor" | transloco }}</a>
+          <button [disabled]="myForm.status === 'INVALID'">Ok</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

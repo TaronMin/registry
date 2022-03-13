@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+.w-100{
+    width: 100%;
+}
+.d-flex-jsc-c-ali-c{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-column{
+    flex-direction: column;
+}
