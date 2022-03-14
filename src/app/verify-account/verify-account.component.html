@@ -10,7 +10,7 @@
             min="0"
             class="w-100"
             type="number"
-            placeholder="Code"
+            placeholder="{{'Code' | transloco}}"
             formControlName="code"
             [ngClass]="getErrors('code') || !isValidCode ? 'error-border' : ''"
           />

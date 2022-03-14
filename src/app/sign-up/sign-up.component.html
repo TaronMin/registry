@@ -1,7 +1,7 @@
 <main>
   <div class="sign-up-content">
-    <h3>{{'Sign Up' | transloco}}</h3>
-    <p class="title-of-sign-up">It’s quick and easy.</p>
+    <h3>{{ "Sign Up" | transloco }}</h3>
+    <p class="title-of-sign-up">{{ "It’s quick and easy." | transloco }}</p>
     <div class="underline"></div>
     <div class="form-content">
       <form action="" [formGroup]="myForm" (submit)="onSubmit(myForm)">
@@ -9,7 +9,7 @@
           <div class="w-100">
             <input
               type="text"
-              placeholder="Name"
+              placeholder="{{ 'Name' | transloco }}"
               formControlName="name"
               [ngClass]="getErrors('name') ? 'error-border' : ''"
             />
@@ -22,7 +22,7 @@
           <div class="w-100">
             <input
               type="text"
-              placeholder="Lastname"
+              placeholder="{{ 'Lastname' | transloco }}"
               formControlName="lastname"
               [ngClass]="getErrors('lastname') ? 'error-border' : ''"
             />
@@ -37,7 +37,7 @@
           <input
             class="w-100"
             type="email"
-            placeholder="Email"
+            placeholder="{{ 'Email' | transloco }}"
             formControlName="email"
             [ngClass]="getErrors('email') ? 'error-border' : ''"
           />
@@ -71,7 +71,7 @@
             (change)="onChange($event, 'region')"
           >
             >
-            <option value="">Region</option>
+            <option value="">{{ "Region" | transloco }}</option>
             <option value="" *ngFor="let item of region" [ngValue]="item">
               {{ item }}
             </option>
@@ -79,43 +79,55 @@
           <div *ngIf="showRegionErr" class="alert">Select the region</div>
         </div>
         <div class="w-100">
-          <select
-            class="w-100 select"
-            name=""
-            id="school"
-            formControlName="school"
+          <div
+            class="w-100 school"
             [ngClass]="showSchoolErr ? 'error-border' : ''"
-            (change)="onChange($event, 'school')"
           >
+            <div
+              class="school-icon w-100 d-flex-jsc-c-ali-c"
+              (click)="showSelect('school')"
             >
-            <option value="">School</option>
-            <option value="" *ngFor="let item of school" [ngValue]="item">
-              {{ item }}
-            </option>
-          </select>
+              <p>{{ selectSchool }}</p>
+              <p><fa-icon [icon]="arrowDown"></fa-icon></p>
+            </div>
+            <div class="w-100 school-select" *ngIf="showSchool">
+              <div *ngFor="let item of school">
+                <p (click)="showSelected(item, 'school')">{{ item }}</p>
+              </div>
+            </div>
+          </div>
           <div *ngIf="showSchoolErr" class="alert">Select the school</div>
         </div>
         <div class="w-100">
-          <select
-            class="w-100 select"
-            name=""
-            id="subject"
-            formControlName="subject"
+          <div
+            class="w-100 subject"
             [ngClass]="showSubjectErr ? 'error-border' : ''"
-            (change)="onChange($event, 'subject')"
           >
-            <option value="">Subject</option>
-            <option value="" *ngFor="let item of subject" [ngValue]="item">
-              {{ item }}
-            </option>
-          </select>
+            <div
+              class="subject-icon w-100 d-flex-jsc-c-ali-c"
+              (click)="showSelect('subject')"
+            >
+              <p>{{ selectSubject[0] }}</p>
+              <p><fa-icon [icon]="arrowDown"></fa-icon></p>
+            </div>
+            <div class="w-100 subject-select" *ngIf="showSubject">
+              <div *ngFor="let item of subjects; let idx = index">
+                <div
+                  class="w-100  subject-item-icon"
+                >
+                  <label [for]="idx" (click)="onChooseSubject(item,$event)">{{ item }}</label>
+                  <input type="checkbox" [id]="idx" />
+                </div>
+              </div>
+            </div>
+          </div>
           <div *ngIf="showSubjectErr" class="alert">Select the subject</div>
         </div>
         <div class="password w-100">
           <input
             class="w-100"
             type="password"
-            placeholder="Password"
+            placeholder="{{ 'Password' | transloco }}"
             formControlName="password"
             [ngClass]="getErrors('password') ? 'error-border' : ''"
           />
@@ -132,7 +144,7 @@
           <input
             class="w-100"
             type="password"
-            placeholder="Confirm Password"
+            placeholder="{{ 'Confirm Password' | transloco }}"
             formControlName="confirmpassword"
             [ngClass]="getErrors('confirmpassword') ? 'error-border' : ''"
           />
@@ -148,7 +160,7 @@
           </div>
         </div>
         <div class="submit-register_as_donor d-flex-jsc-c-ali-c w-100">
-          <a href="#">{{'Register as a Donor' | transloco}}</a>
+          <a href="#">{{ "Register as a Donor" | transloco }}</a>
           <button [disabled]="myForm.status === 'INVALID'">Ok</button>
         </div>
       </form>

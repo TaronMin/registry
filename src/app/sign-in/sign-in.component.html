@@ -9,7 +9,7 @@
             <input
               class="w-100"
               type="email"
-              placeholder="Email"
+              placeholder="{{'Email' | transloco}}"
               formControlName="email"
               [ngClass]="getErrors('email') ? 'error-border' : ''"
             />
@@ -23,7 +23,7 @@
             <input
               class="w-100"
               type="password"
-              placeholder="Password"
+              placeholder="{{'Password' | transloco}}"
               formControlName="password"
               [ngClass]="getErrors('password') ? 'error-border' : ''"
             />

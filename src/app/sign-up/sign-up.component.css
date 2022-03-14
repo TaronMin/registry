@@ -31,7 +31,8 @@ h3,
   margin: 10px auto;
 }
 input,
-.select {
+.select,
+.school,.subject {
   border: 0.5px solid rgba(25, 72, 102, 0.8);
   box-sizing: border-box;
   border-radius: 10px;
@@ -75,10 +76,52 @@ button {
   padding: 10px 20px;
   cursor: pointer;
 }
-.alert{
+.alert {
   color: red;
   margin: -10px 0px 5px 0px;
 }
-.error-border{
+.error-border {
   border: 0.5px solid red !important;
+}
+.school-select,.subject-select {
+  height: 190px;
+  background: #ffffff;
+  border: 0.2px solid rgba(25, 72, 102, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+.school,.subject {
+  background: #fff;
+  font-size: 14px;
+}
+.school-icon,
+.subject-icon {
+  position: relative;
+}
+.school-select,
+.subject-select {
+  position: absolute;
+  width: 400px;
+  margin-top: 15px;
+  margin-left: -10px;
+  padding: 10px;
+  z-index: 99999;
+}
+label{
+  width: 100%;
+  cursor: pointer;
+}
+.school-select p {
+  padding: 5px 0px 5px 2px;
+  cursor: pointer;
+}
+.school-select p:hover {
+  background: #c1c1c1;
+  color: #fff;
+}
+.subject-item-icon{
+  display: flex;
+  justify-content: space-between;
 }

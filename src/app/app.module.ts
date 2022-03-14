@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { TranslocoRootModule } from './transloco-root.module';
 import { VerifyAccountComponent } from './verify-account/verify-account.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, SignUpComponent, SignInComponent, VerifyAccountComponent],
@@ -20,6 +21,7 @@ import { VerifyAccountComponent } from './verify-account/verify-account.componen
     ReactiveFormsModule,
     HttpClientModule,
     TranslocoRootModule,
+    FontAwesomeModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

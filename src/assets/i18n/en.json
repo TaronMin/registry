@@ -1,5 +1,12 @@
 {
     "Name":"Name",
+    "Lastname":"Lastname",
+    "Password":"Password",
+    "Region":"Region",
+    "School":"School",
+    "Subject":"Subject",
+    "Code":"Code",
+    "Confirm Password":"Confirm Password",
     "Email":"Email",
     "Teachers":"Teachers",
     "Sign Up":"Sign Up",
